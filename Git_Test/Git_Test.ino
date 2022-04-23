@@ -1,8 +1,6 @@
-#include <SPIFlash.h>
+#include <SPI.h>
 #include <RFM69.h>
-#include <RFM69registers.h>
-#include <RFM69_ATC.h>
-#include <RFM69_OTA.h>
+
 
 #define NETWORKID     0   // Must be the same for all nodes (0 to 255)
 #define MYNODEID      1   // My node ID (0 to 255)
@@ -12,12 +10,12 @@
 #define ENCRYPT     false
 #define USEACK      false
 
-RFM69 radio;              // Skapa radio objekt.
+RFM69 radio;
 
 void setup() {
   Serial.begin(9600);
   radio.initialize(FREQUENCY, MYNODEID, NETWORKID);
-  radio.setHighPower();
+  radio.setHighPower(); // Always use this for RFM69HCW
 }
 
 void loop() {
