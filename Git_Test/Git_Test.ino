@@ -1,3 +1,9 @@
+#include <SPIFlash.h>
+#include <RFM69.h>
+#include <RFM69registers.h>
+#include <RFM69_ATC.h>
+#include <RFM69_OTA.h>
+
 void setup() {
   // put your setup code here, to run once:
   // Git test är jättekul!
