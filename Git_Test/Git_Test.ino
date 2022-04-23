@@ -4,9 +4,20 @@
 #include <RFM69_ATC.h>
 #include <RFM69_OTA.h>
 
+#define NETWORKID     0   // Must be the same for all nodes (0 to 255)
+#define MYNODEID      1   // My node ID (0 to 255)
+#define TONODEID      2   // Destination node ID (0 to 254, 255 = broadcast)
+
+#define FREQUENCY   RF69_433MHZ
+#define ENCRYPT     false
+#define USEACK      false
+
+RFM69 radio;              // Skapa radio objekt.
+
 void setup() {
-  // put your setup code here, to run once:
-  // Git test är jättekul!
+  Serial.begin(9600);
+  radio.initialize(FREQUENCY, MYNODEID, NETWORKID);
+  radio.setHighPower();
 }
 
 void loop() {
